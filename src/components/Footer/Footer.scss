@@ -1,0 +1,34 @@
+@use "../../styles/variables" as *;
+
+#footer-id {
+  display: flex;
+  justify-content: space-between;
+  height: 350px;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: $color-main;
+  padding: 0 $padding-horizontal;
+
+  .questions {
+  }
+
+  .location {
+  }
+
+  .puppy {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #footer-id {
+    flex-direction: column;
+
+    .puppy-img {
+      max-width: 80vw;
+    }
+  }
+}

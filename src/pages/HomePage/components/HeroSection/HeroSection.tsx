@@ -16,7 +16,7 @@ export const HeroSection = () => {
         </div>
 
         <div className="puppy">
-          <img src={puppy} alt="puppy" />
+          <img className="puppy-img" src={puppy} alt="puppy" />
         </div>
       </div>
     </div>
