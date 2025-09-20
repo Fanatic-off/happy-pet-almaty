@@ -1,0 +1,45 @@
+@use "../../../../styles/variables" as *;
+
+#hero-section-id {
+  min-height: 100vh;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: $color-main;
+
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $padding-horizontal;
+
+    .appeal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: $font-main;
+      max-width: 40vw;
+      text-align: left;
+      gap: 3rem;
+
+      h1 {
+        font-size: 44px;
+        font-weight: 400;
+      }
+
+      .description {
+        font-family: Arial;
+        font-size: 15px;
+        line-height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .puppy {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}
