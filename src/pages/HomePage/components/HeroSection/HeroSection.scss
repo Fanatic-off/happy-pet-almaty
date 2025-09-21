@@ -30,7 +30,7 @@
       .description {
         font-family: Arial;
         font-size: 15px;
-        line-height: 18px;
+        line-height: 26px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -48,14 +48,23 @@
   }
 }
 
-@media (max-width: $width-mobile) {
-  .hero-section {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+@media (max-width: $width-tablet) {
+  #hero-section-id {
+    .hero-section {
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
 
-    .puppy-img {
-      max-width: 90vw;
+      .appeal {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .puppy {
+        .puppy-img {
+          max-width: 90vw;
+        }
+      }
     }
   }
 }
