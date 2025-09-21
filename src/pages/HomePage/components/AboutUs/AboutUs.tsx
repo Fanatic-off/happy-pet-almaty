@@ -1,11 +1,11 @@
 import "./AboutUs.scss";
-import ourPhoto from "./assets/our.jpg";
+import qq from "./assets/our.jpg";
 
 export const AboutUs = () => {
   return (
     <div id="about-us-id">
       <div className="photos">
-        <img className="our-photo" src={ourPhoto} alt="ssss" />
+        <img className="our-photo" src={qq} alt="ssss" />
       </div>
 
       <div className="about-info">
@@ -46,7 +46,7 @@ export const AboutUs = () => {
           Поддержать. Приютить. Рассказать. Поделиться. Подарить шанс.
           <br />
           <br />
-          Потому что вместе мы можем больше. ❤️
+          Потому что вместе мы можем больше!
         </div>
       </div>
     </div>
