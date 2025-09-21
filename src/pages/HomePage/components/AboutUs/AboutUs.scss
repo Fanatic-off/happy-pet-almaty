@@ -11,6 +11,7 @@
   .photos {
     .our-photo {
       max-height: 90vh;
+      max-width: 100vw;
     }
   }
 
@@ -39,8 +40,10 @@
     display: flex;
     flex-direction: column;
 
-    .appeal {
-      max-width: 100%;
+    .about-info {
+      .appeal {
+        max-width: 100%;
+      }
     }
   }
 }
