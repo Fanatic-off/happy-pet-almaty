@@ -1,19 +1,43 @@
 @use "../../styles/variables" as *;
 
 #footer-id {
-  display: flex;
-  justify-content: space-between;
-  height: 350px;
+  display: grid;
+  grid-template: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  min-height: 350px;
   background-image: url("/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: $color-main;
   padding: 0 $padding-horizontal;
 
-  .questions {
-  }
+  .info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-  .location {
+    .questions {
+    }
+
+    .location {
+    }
+
+    .title {
+      font-family: $font-main;
+      color: white;
+      font-size: 35px;
+      font-weight: 400;
+      line-height: 42px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: $color-secondary;
+      font-size: 20px;
+      font-weight: 400;
+    }
   }
 
   .puppy {
