@@ -1,6 +1,56 @@
+@use "../../../../styles/variables" as *;
+
 #about-us-id {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  padding: 80px $padding-horizontal;
+  gap: 4vw;
+
+  .photos {
+    .our-photo {
+      max-height: 90vh;
+    }
+  }
+
+  .about-info {
+    color: $color-gray;
+    display: grid;
+    gap: 4vh;
+    text-align: left;
+
+    .title {
+      font-family: $font-main;
+      font-size: 35px;
+      font-weight: 400;
+      line-height: 42px;
+    }
+
+    .appeal {
+      text-align: left;
+      max-width: 35vw;
+    }
+  }
+}
+
+@media (max-width: $width-tablet) {
+  #about-us-id {
+    display: flex;
+    flex-direction: column;
+
+    .photos {
+      .our-photo {
+      }
+    }
+
+    .about-info {
+      .title {
+      }
+
+      .appeal {
+        max-width: 100%;
+      }
+    }
+  }
 }
