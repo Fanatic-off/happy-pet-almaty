@@ -15,7 +15,9 @@ export const Footer = () => {
               <img src={phone} alt="phone" />
             </div>
 
-            <div>87472122619</div>
+            <a className="phone" href="tel:+77472122619">
+              +77472122619
+            </a>
           </div>
         </div>
 
