@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align: left;
 
     .questions {
     }
@@ -47,12 +48,26 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $width-tablet) {
   #footer-id {
+    display: flex;
     flex-direction: column;
+    gap: 3rem;
+
+    .info {
+      gap: 2rem;
+    }
 
     .puppy-img {
       max-width: 80vw;
+    }
+  }
+}
+
+@media (max-width: $width-mobile) {
+  #footer-id {
+    .info {
+      flex-direction: column;
     }
   }
 }
