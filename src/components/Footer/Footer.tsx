@@ -2,6 +2,7 @@ import "./Footer.scss";
 import puppy from "./assets/puppy.svg";
 import phone from "./assets/phone.svg";
 import marker from "./assets/marker.svg";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export const Footer = () => {
   return (
@@ -15,8 +16,26 @@ export const Footer = () => {
               <img src={phone} alt="phone" />
             </div>
 
-            <a className="phone" href="tel:+77472122619">
+            <a target="_blank" className="phone" href="tel:+77472122619">
               +77472122619
+            </a>
+          </div>
+
+          <div className="row">
+            <svg
+              width="40"
+              height="40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <InstagramIcon fontSize="large" />
+            </svg>
+
+            <a
+              target="_blank"
+              href="https://www.instagram.com/happy_pet_almaty"
+            >
+              happy_pet_almaty
             </a>
           </div>
         </div>

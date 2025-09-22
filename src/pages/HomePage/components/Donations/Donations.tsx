@@ -10,7 +10,11 @@ export const Donations = () => {
         спасти чью-то жизнь.
       </p>
 
-      <a href="https://pay.kaspi.kz/pay/hn36faf2" className="btn btn-primary">
+      <a
+        target="_blank"
+        href="https://pay.kaspi.kz/pay/hn36faf2"
+        className="btn btn-primary"
+      >
         👉 Помочь прямо сейчас 👈
       </a>
     </section>
