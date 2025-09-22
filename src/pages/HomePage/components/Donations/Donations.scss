@@ -3,4 +3,17 @@
 #donate-section-id {
   min-height: 50vh;
   padding: $padding-horizontal;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+
+  .btn-primary {
+    border-radius: 9px;
+    background: var(--color-primary, rgba(241, 205, 179, 1));
+    padding: 10px 15px;
+    text-decoration: none;
+    color: $color-gray;
+    max-width: 25vh;
+  }
 }

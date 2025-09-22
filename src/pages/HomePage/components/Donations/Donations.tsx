@@ -1,3 +1,4 @@
+import { Link } from "@mui/material";
 import "./Donations.scss";
 
 export const Donations = () => {
@@ -10,13 +11,13 @@ export const Donations = () => {
         спасти чью-то жизнь.
       </p>
 
-      <a
+      <Link
         target="_blank"
         href="https://pay.kaspi.kz/pay/hn36faf2"
-        className="btn btn-primary"
+        className="btn-primary"
       >
-        👉 Помочь прямо сейчас 👈
-      </a>
+        Помочь прямо сейчас
+      </Link>
     </section>
   );
 };
