@@ -1,0 +1,71 @@
+@use "../../styles/variables" as *;
+
+#footer-id {
+  display: grid;
+  grid-template: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  min-height: 350px;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: $color-main;
+  padding: 0 $padding-horizontal;
+
+  .info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+
+    a {
+      color: $color-secondary;
+    }
+
+    .title {
+      font-family: $font-main;
+      color: white;
+      font-size: 35px;
+      font-weight: 400;
+      line-height: 42px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: $color-secondary;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+
+  .puppy {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+
+@media (max-width: $width-tablet) {
+  #footer-id {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .info {
+      gap: 2rem;
+    }
+
+    .puppy-img {
+      max-width: 80vw;
+    }
+  }
+}
+
+@media (max-width: $width-mobile) {
+  #footer-id {
+    .info {
+      flex-direction: column;
+    }
+  }
+}
