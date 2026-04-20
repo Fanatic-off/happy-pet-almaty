@@ -6,12 +6,14 @@ export const HeroSection = () => {
     <div id="hero-section-id">
       <div className="hero-section">
         <div className="appeal">
-          <h1>Not only people need a house</h1>
+          <h1>Не только людям нужен дом</h1>
 
           <p className="description">
-            We offer to give a chance to a little and nice puppy with an
-            extremely wide and open heart. He or she will love you more than
-            anybody else in the world, you will see!
+            Мы предлагаем дать шанс маленькому и милому щенку с невероятно
+            широким и открытым сердцем.
+            <br />
+            Он или она будут любить вас больше, чем кто-либо другой на свете —
+            вы сами увидите!
           </p>
         </div>
 
