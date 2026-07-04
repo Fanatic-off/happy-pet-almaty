@@ -1,0 +1,3 @@
+# SPA-фолбэк: любые маршруты отдают index.html (Netlify / Cloudflare Pages).
+# Нужно, чтобы прямые ссылки /dogs, /stories, /donate открывались и индексировались.
+/*    /index.html   200

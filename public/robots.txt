@@ -1,0 +1,6 @@
+# robots.txt — приют «Счастливый питомец»
+User-agent: *
+Allow: /
+
+# Карта сайта (замените домен на реальный)
+Sitemap: https://happy-pet-almaty.kz/sitemap.xml

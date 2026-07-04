@@ -1,9 +1,17 @@
 import { storiesData } from "../../data/stories";
 import { StoryCard } from "../../components/StoryCard/StoryCard";
 import { Reveal } from "../../components/Reveal/Reveal";
+import { useDocumentMeta } from "../../hooks/useDocumentMeta";
 import "./StoriesPage.scss";
 
 export const StoriesPage = () => {
+  useDocumentMeta({
+    title: "Истории спасения собак — приют «Счастливый питомец», Алматы",
+    description:
+      "Реальные истории спасения бездомных собак в Алматы: Ярик, Тина, Фунтик и другие подопечные приюта «Счастливый питомец». Как любовь и помощь дарят второй шанс.",
+    path: "/stories",
+  });
+
   return (
     <div className="stories-page">
       <div className="stories-header">

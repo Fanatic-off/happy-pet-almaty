@@ -2,6 +2,9 @@
 export const SITE = {
   name: "Счастливый питомец",
   tagline: "Приют для бездомных собак · Алматы",
+  // ВАЖНО для SEO: укажите реальный домен сайта (без слэша в конце).
+  // Также замените его в public/robots.txt, public/sitemap.xml и index.html (canonical, og:url, JSON-LD).
+  url: "https://happy-pet-almaty.kz",
   city: "Алматы, Казахстан",
   phone: "+7 747 212 26 19",
   phoneHref: "tel:+77472122619",

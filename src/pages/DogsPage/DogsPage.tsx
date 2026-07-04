@@ -3,6 +3,7 @@ import { dogsData } from "../../data/dogs";
 import type { Dog } from "../../data/dogs";
 import { DogCard } from "../../components/DogCard/DogCard";
 import { Reveal } from "../../components/Reveal/Reveal";
+import { useDocumentMeta } from "../../hooks/useDocumentMeta";
 import "./DogsPage.scss";
 
 type Filter = "all" | "small" | "big" | "puppy" | "urgent";
@@ -31,6 +32,13 @@ const applyFilter = (dogs: Dog[], filter: Filter): Dog[] => {
 };
 
 export const DogsPage = () => {
+  useDocumentMeta({
+    title: "Собаки из приюта в Алматы — наши подопечные | Счастливый питомец",
+    description:
+      "Познакомьтесь с собаками приюта «Счастливый питомец» в Алматы. Реальные хвостики ждут дом: забрать, взять на передержку или помочь. Пишите нам в WhatsApp.",
+    path: "/dogs",
+  });
+
   const [active, setActive] = useState<Filter>("all");
   const visible = useMemo(() => applyFilter(dogsData, active), [active]);
 

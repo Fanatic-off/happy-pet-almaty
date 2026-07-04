@@ -2,9 +2,17 @@ import { useState } from "react";
 import { donationTiers, impactItems, formatTenge } from "../../data/donations";
 import { useDonate } from "../../components/DonateModal/DonateContext";
 import { Reveal } from "../../components/Reveal/Reveal";
+import { useDocumentMeta } from "../../hooks/useDocumentMeta";
 import "./DonatePage.scss";
 
 export const DonatePage = () => {
+  useDocumentMeta({
+    title: "Помочь приюту в Алматы — пожертвование | Счастливый питомец",
+    description:
+      "Поддержите приют «Счастливый питомец» в Алматы. Пожертвование через Kaspi идёт на корм, лечение и уход за бездомными собаками. Даже небольшая сумма спасает жизнь.",
+    path: "/donate",
+  });
+
   const { openDonate } = useDonate();
   const [selected, setSelected] = useState("1000");
   const [custom, setCustom] = useState("");
