@@ -7,9 +7,13 @@ const avatarColors = ["#E8901A", "#E05A3A", "#2A8C6E", "#4A5FBF", "#9B59B6", "#E
 export const StoryCard = ({ story, index = 0 }: { story: Story; index?: number }) => {
   return (
     <div className="story-card">
-      <div className={`story-photo ${story.color}`}>
+      <div className={`story-photo ${story.photo ? "has-photo" : story.color}`}>
         <div className="story-badge">{story.badge}</div>
-        <DogIllustration />
+        {story.photo ? (
+          <img src={story.photo} alt={story.title} loading="lazy" />
+        ) : (
+          <DogIllustration />
+        )}
       </div>
       <div className="story-body">
         <div className="story-title">{story.title}</div>

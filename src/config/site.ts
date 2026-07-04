@@ -5,6 +5,8 @@ export const SITE = {
   city: "Алматы, Казахстан",
   phone: "+7 747 212 26 19",
   phoneHref: "tel:+77472122619",
+  // Номер для WhatsApp (только цифры, без + и пробелов)
+  whatsapp: "77472122619",
   instagram: "https://www.instagram.com/happy_pet_almaty",
   instagramHandle: "happy_pet_almaty",
   // Ссылка Kaspi для приёма пожертвований
@@ -13,13 +15,21 @@ export const SITE = {
   yearsHelping: 9,
 };
 
-// Плейсхолдер-статистика. Замените на реальные цифры приюта.
+// Статистика по актуальному профилю Instagram @happy_pet_almaty.
+// Обновляйте цифры подписчиков/публикаций периодически.
 export const STATS = [
-  { value: 1240, suffix: "", label: "собак нашли дом" },
-  { value: 84, suffix: "", label: "сейчас в приюте" },
-  { value: SITE.yearsHelping, suffix: " лет", label: "мы спасаем жизни" },
+  { value: 16218, suffix: "", label: "неравнодушных в нашей стае" },
+  { value: 6284, suffix: "", label: "постов о наших хвостиках" },
+  { value: 100, suffix: "%", label: "живём на ваши пожертвования" },
 ];
 
 export const openKaspi = () => {
   window.open(SITE.kaspi, "_blank", "noopener,noreferrer");
+};
+
+// Открыть чат в WhatsApp с приютом (с предзаполненным текстом)
+export const openWhatsApp = (text?: string) => {
+  const base = `https://wa.me/${SITE.whatsapp}`;
+  const url = text ? `${base}?text=${encodeURIComponent(text)}` : base;
+  window.open(url, "_blank", "noopener,noreferrer");
 };

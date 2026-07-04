@@ -1,34 +1,78 @@
+import yarik from "../assets/gallery/yarik.jpg";
+import funtik from "../assets/gallery/funtik.jpg";
+import tina from "../assets/gallery/tina.jpg";
+import strayPuppies from "../assets/gallery/stray-puppies.jpg";
+import strayDog from "../assets/gallery/stray-dog.jpg";
+
 export type DogSize = "small" | "big";
 export type DogTag = "friendly" | "urgent" | "kids" | "quiet";
 
 export interface Dog {
   name: string;
-  age: string;
-  breed: string;
+  meta: string; // краткое описание: порода · размер и т.п.
   size: DogSize;
   tags: DogTag[];
   desc: string;
-  color: string; // css-класс градиента (dog-illo-1 ... dog-illo-8)
-  months: number; // сколько ждёт дом
+  photo?: string; // реальное фото
+  color: string; // запасной градиент, если фото нет
+  status: string; // "Ищет дом" | "На лечении" ...
+  isPuppy?: boolean;
 }
 
-// Плейсхолдер-данные. Замените реальными собаками приюта.
+// Реальные подопечные приюта «Счастливый питомец» (Instagram @happy_pet_almaty).
 export const dogsData: Dog[] = [
-  { name: "Барон", age: "3 года", breed: "Лабрадор", size: "big", tags: ["kids", "friendly"], desc: "Добродушный великан, обожает детей и мячики. Идеален для большой семьи.", color: "dog-illo-1", months: 8 },
-  { name: "Люся", age: "2 года", breed: "Дворняжка", size: "small", tags: ["friendly", "quiet"], desc: "Тихая и нежная. Любит лежать рядом и смотреть кино. Мечта интроверта.", color: "dog-illo-2", months: 4 },
-  { name: "Граф", age: "5 лет", breed: "Хаски", size: "big", tags: ["urgent", "friendly"], desc: "Ждёт год. Пережил жестокое обращение, но не потерял доверия к людям.", color: "dog-illo-3", months: 12 },
-  { name: "Буся", age: "1 год", breed: "Спаниель", size: "small", tags: ["kids", "friendly"], desc: "Щенячья энергия в маленьком теле. Выучила «сидеть» за три дня.", color: "dog-illo-4", months: 2 },
-  { name: "Рокки", age: "7 лет", breed: "Немецкая овчарка", size: "big", tags: ["urgent", "quiet"], desc: "Ему уже 7 — и он всё ещё ждёт. Взрослые собаки любят не меньше.", color: "dog-illo-5", months: 18 },
-  { name: "Берта", age: "4 месяца", breed: "Метис", size: "small", tags: ["kids", "friendly"], desc: "Смешная, пузатая, сопит во сне. Вакцинирована, готова к переезду.", color: "dog-illo-6", months: 1 },
-  { name: "Зефир", age: "2 года", breed: "Самоед", size: "big", tags: ["friendly", "kids"], desc: "Пушистое облако с постоянной улыбкой. Любит снег и обнимашки.", color: "dog-illo-7", months: 6 },
-  { name: "Пуля", age: "3 года", breed: "Такса", size: "small", tags: ["quiet"], desc: "Маленькая, гордая, очень умная. Знает 12 команд и притворяется, что не слышит 13-ю.", color: "dog-illo-8", months: 5 },
+  {
+    name: "Ярик",
+    meta: "Метис · крупный · длинная шерсть",
+    size: "big",
+    tags: ["friendly"],
+    desc: "После профессионального груминга Ярик преобразился: колтуны позади, шерсть — загляденье. Здоров, дружелюбен и на 100% готов к переезду в семью.",
+    photo: yarik,
+    color: "dog-illo-1",
+    status: "🏡 Ищет дом",
+  },
+  {
+    name: "Мама с щенками",
+    meta: "Мама + 6 малышей · с улицы",
+    size: "small",
+    tags: ["kids", "friendly"],
+    desc: "Возле нашего дома в Алматы нашли маму-собаку с шестью новорождёнными щенками. Приют берёт на себя ветеринарию и вакцинацию — семье срочно нужна передержка или дом.",
+    photo: strayPuppies,
+    color: "dog-illo-6",
+    status: "🏡 Нужна передержка",
+    isPuppy: true,
+  },
+  {
+    name: "Тина",
+    meta: "Метис · средний · с характером",
+    size: "big",
+    tags: ["urgent", "quiet"],
+    desc: "С декабря боремся за её здоровье: колоноскопия, биопсии, предварительно колит. Сейчас Тина снова в приюте и очень радуется жизни. Ей нужна поддержка на лечение.",
+    photo: tina,
+    color: "dog-illo-2",
+    status: "💊 На лечении",
+  },
+  {
+    name: "Фунтик",
+    meta: "Мопс · маленький · большой боец",
+    size: "small",
+    tags: ["urgent"],
+    desc: "Лечим от демодекоза, позади уже четыре операции на ухе. Несмотря на всё, Фунтик не теряет доверия к людям и продолжает бороться. Ему очень нужна помощь.",
+    photo: funtik,
+    color: "dog-illo-4",
+    status: "💊 На лечении",
+  },
+  {
+    name: "Найдёныш",
+    meta: "Метис · ласковый · с улицы",
+    size: "big",
+    tags: ["urgent"],
+    desc: "Почти неделю бродит по мкр Кемел — ласковый, но напуганный. Люди его боятся, магазин грозит вызвать отлов. Ему срочно нужен тот, кто заберёт его с улицы.",
+    photo: strayDog,
+    color: "dog-illo-3",
+    status: "⚠️ Срочно",
+  },
 ];
 
-export const monthWord = (n: number): string => {
-  if (n === 1) return "месяц";
-  if (n >= 2 && n <= 4) return "месяца";
-  return "месяцев";
-};
-
 export const tagLabel = (t: DogTag): string =>
-  ({ friendly: "дружелюбный", urgent: "срочно!", kids: "с детьми", quiet: "спокойный" }[t] || t);
+  ({ friendly: "дружелюбный", urgent: "нужна помощь", kids: "с детьми", quiet: "спокойный" }[t] || t);

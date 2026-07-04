@@ -7,17 +7,17 @@ import "./StoriesPreview.scss";
 
 export const StoriesPreview = () => {
   const navigate = useNavigate();
-  const preview = storiesData.slice(0, 2);
+  const preview = storiesData;
 
   return (
     <section className="section stories-preview">
       <div className="section-label">Истории спасения</div>
       <h2 className="section-h2">
-        Они уже нашли <em>свой дом</em>
+        Реальные истории <em>наших хвостиков</em>
       </h2>
       <p className="section-sub" style={{ marginBottom: 40 }}>
-        Реальные истории — без прикрас. Читайте и убеждайтесь, что чудеса
-        случаются.
+        Прямо из нашего Instagram — без прикрас. Так выглядит спасение каждый
+        день.
       </p>
 
       <div className="stories-preview-grid">

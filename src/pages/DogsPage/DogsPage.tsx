@@ -20,7 +20,7 @@ const applyFilter = (dogs: Dog[], filter: Filter): Dog[] => {
     case "urgent":
       return dogs.filter((d) => d.tags.includes("urgent"));
     case "puppy":
-      return dogs.filter((d) => d.age.includes("месяц") || parseInt(d.age) < 1);
+      return dogs.filter((d) => d.isPuppy);
     case "small":
       return dogs.filter((d) => d.size === "small");
     case "big":
@@ -39,11 +39,11 @@ export const DogsPage = () => {
       <div className="dogs-header">
         <div className="section-label">Найти питомца</div>
         <h1>
-          Выбери своего <em>друга</em>
+          Познакомься с <em>нашими хвостиками</em>
         </h1>
         <p>
-          Все они здоровы, привиты и стерилизованы. Осталось одно — встретиться с
-          вами.
+          Реальные подопечные приюта. Кто-то уже готов домой, кто-то ещё на
+          лечении — но каждому нужны именно вы.
         </p>
       </div>
 

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../store/routes";
 import { useDonate } from "../../../../components/DonateModal/DonateContext";
 import { STATS } from "../../../../config/site";
-import { dogsData, monthWord } from "../../../../data/dogs";
+import { dogsData } from "../../../../data/dogs";
 import { DogIllustration } from "../../../../components/DogIllustration/DogIllustration";
 import { useInView } from "../../../../hooks/useInView";
 import { useCountUp } from "../../../../hooks/useCountUp";
@@ -71,17 +71,17 @@ export const HeroSection = () => {
         <div className="hero-dogs-grid">
           {heroDogs.map((dog) => (
             <div className="dog-card-mini" key={dog.name}>
-              <div className={`dog-avatar ${dog.color}`}>
-                <DogIllustration variant="mini" />
+              <div className={`dog-avatar ${dog.photo ? "has-photo" : dog.color}`}>
+                {dog.photo ? (
+                  <img src={dog.photo} alt={dog.name} loading="lazy" />
+                ) : (
+                  <DogIllustration variant="mini" />
+                )}
               </div>
               <div className="dog-card-mini-info">
                 <div className="dog-mini-name">{dog.name}</div>
-                <div className="dog-mini-age">
-                  {dog.age} · {dog.breed}
-                </div>
-                <div className="waiting-badge">
-                  ждёт {dog.months} {monthWord(dog.months)}
-                </div>
+                <div className="dog-mini-age">{dog.meta}</div>
+                <div className="waiting-badge">{dog.status}</div>
               </div>
             </div>
           ))}
