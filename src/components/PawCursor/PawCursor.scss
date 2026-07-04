@@ -1,0 +1,70 @@
+// Прячем нативный курсор, когда активна лапка (но в текстовых полях — оставляем каретку)
+body.paw-cursor-active,
+body.paw-cursor-active *:not(input):not(textarea):not(select) {
+  cursor: none !important;
+}
+
+.paw-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  margin-left: -18px; // совмещаем «пальчики» лапки с точкой курсора
+  margin-top: -9px;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 38%;
+    transition: transform 0.14s ease, filter 0.14s ease;
+    filter: drop-shadow(0 2px 3px rgba(28, 43, 58, 0.3));
+
+    g {
+      fill: var(--amber);
+      transition: fill 0.15s ease;
+    }
+  }
+
+  &.is-hidden {
+    opacity: 0;
+  }
+
+  // Наведение на кнопку — лапка коралловая и «тапает»
+  &.is-hover svg {
+    animation: pawTap 0.55s ease-in-out infinite;
+  }
+
+  &.is-hover svg g {
+    fill: var(--coral);
+  }
+
+  // Нажатие — чёткий «шлепок»
+  &.is-press svg {
+    animation: none;
+    transform: scale(0.8) translateY(4px);
+  }
+}
+
+@keyframes pawTap {
+  0%,
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  35% {
+    transform: translateY(5px) scale(0.88) rotate(-7deg);
+  }
+  55% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paw-cursor.is-hover svg {
+    animation: none;
+    transform: scale(0.92);
+  }
+}

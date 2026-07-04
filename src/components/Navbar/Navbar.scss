@@ -73,6 +73,8 @@
     font-weight: 600 !important;
     font-size: 14px !important;
     letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 16px rgba(224, 90, 58, 0.32);
     animation: donate-pulse 3s ease-in-out infinite;
@@ -87,8 +89,28 @@
 
 @media (max-width: $bp-mobile) {
   .navbar {
+    padding: 0 16px;
+    gap: 12px;
+
+    .nav-logo {
+      min-width: 0; // разрешаем логотипу сжиматься, а не давить на кнопку
+      flex-shrink: 1;
+    }
+
+    .nav-paw {
+      flex-shrink: 0;
+    }
+
+    .nav-title {
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .nav-links {
       gap: 16px;
+      flex-shrink: 0;
 
       li:not(:last-child) {
         display: none;

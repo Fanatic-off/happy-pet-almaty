@@ -47,6 +47,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ===== КУРСОР-ЛАПКА 🐾 ===== */
+/* Обычный курсор — янтарная лапка */
+body {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cg%20fill='%23e8901a'%20stroke='%23ffffff'%20stroke-width='1.5'%3E%3Cellipse%20cx='16'%20cy='21'%20rx='7.5'%20ry='6.5'/%3E%3Ccircle%20cx='7.5'%20cy='14'%20r='3.2'/%3E%3Ccircle%20cx='12.5'%20cy='9.5'%20r='3.4'/%3E%3Ccircle%20cx='19.5'%20cy='9.5'%20r='3.4'/%3E%3Ccircle%20cx='24.5'%20cy='14'%20r='3.2'/%3E%3C/g%3E%3C/svg%3E") 16 8, auto;
+}
+
+/* Кликабельные элементы — коралловая лапка */
+a,
+button,
+label,
+summary,
+[role="button"],
+.amount-chip,
+.amount-btn,
+.donate-chip,
+.filter-btn,
+.period-btn {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20viewBox='0%200%2032%2032'%3E%3Cg%20fill='%23e05a3a'%20stroke='%23ffffff'%20stroke-width='1.5'%3E%3Cellipse%20cx='16'%20cy='21'%20rx='7.5'%20ry='6.5'/%3E%3Ccircle%20cx='7.5'%20cy='14'%20r='3.2'/%3E%3Ccircle%20cx='12.5'%20cy='9.5'%20r='3.4'/%3E%3Ccircle%20cx='19.5'%20cy='9.5'%20r='3.4'/%3E%3Ccircle%20cx='24.5'%20cy='14'%20r='3.2'/%3E%3C/g%3E%3C/svg%3E") 16 8, pointer;
+}
+
+/* В текстовых полях — обычный текстовый курсор */
+input,
+textarea,
+select {
+  cursor: text;
+}
+
 h1,
 h2,
 h3,

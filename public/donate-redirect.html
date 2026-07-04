@@ -172,7 +172,7 @@
     }
 
     .fallback-link {
-      display: inline-block;
+      display: block;
       margin-top: 18px;
       font-size: 13px;
       color: var(--coral);
@@ -227,8 +227,8 @@
   </div>
 
   <div class="content">
-    <h1>Спасибо от всей стаи! 🐾</h1>
-    <p>Где-то в приюте уже застучали хвосты по полу.<br />Открываем безопасную оплату Kaspi…</p>
+    <h1 id="thanks-title">Спасибо от всей стаи! 🐾</h1>
+    <p id="thanks-text">Где-то в приюте уже застучали хвосты по полу.<br />Открываем безопасную оплату Kaspi…</p>
     <div class="progress"><span></span></div>
     <a id="fallback" class="fallback-link" href="#">Не открывается? Перейти вручную</a>
   </div>
@@ -237,6 +237,19 @@
     (function () {
       // Обрываем связь с открывшей вкладкой (раз открыли без noopener)
       try { window.opener = null; } catch (e) { /* игнорируем */ }
+
+      // Случайная благодарность в «стайном» стиле
+      var thanks = [
+        { t: "Спасибо от всей стаи! 🐾", p: "Где-то в приюте уже застучали хвосты по полу." },
+        { t: "Вы — герой дня! 🐾", p: "Целая стая мысленно виляет вам хвостом от благодарности." },
+        { t: "Хвосты пошли вразнос! 🐕", p: "Вы только что сделали чей-то день теплее и сытнее." },
+        { t: "Стая вас запомнит 🐾", p: "Один сытый живот и одно спасённое сердце — с вашей помощью." },
+        { t: "Ушки на макушке! 🐶", p: "Кто-то ещё не знает, что вы его спаситель. А мы уже знаем." }
+      ];
+      var pick = thanks[Math.floor(Math.random() * thanks.length)];
+      document.getElementById("thanks-title").textContent = pick.t;
+      document.getElementById("thanks-text").innerHTML =
+        pick.p + "<br />Открываем безопасную оплату Kaspi…";
 
       var FALLBACK = "https://pay.kaspi.kz/pay/hn36faf2"; // запасной адрес Kaspi (держать в синхроне с src/config/site.ts)
       var target = FALLBACK;

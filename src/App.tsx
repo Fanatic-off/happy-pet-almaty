@@ -9,12 +9,14 @@ import { DonatePage } from "./pages/DonatePage/DonatePage";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+import { PawCursor } from "./components/PawCursor/PawCursor";
 import { DonateProvider } from "./components/DonateModal/DonateContext";
 import { DonateModal } from "./components/DonateModal/DonateModal";
 
 function App() {
   return (
     <DonateProvider>
+      <PawCursor />
       <ScrollToTop />
       <Navbar />
 

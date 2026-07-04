@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDonate } from "./DonateContext";
 import { SITE } from "../../config/site";
 import { formatTenge } from "../../data/donations";
+import { modalVariants, noteVariants, pickRandom } from "../../data/donateCopy";
 import "./DonateModal.scss";
 
 const quickChips = [
@@ -40,11 +41,22 @@ const redirectUrl = `${import.meta.env.BASE_URL}donate-redirect.html?to=${encode
 export const DonateModal = () => {
   const { open, amount, closeDonate } = useDonate();
   const [selected, setSelected] = useState<string | null>(null);
+  const [copy, setCopy] = useState(() => ({
+    v: modalVariants[0],
+    note: noteVariants[0],
+  }));
 
   // При открытии подхватываем предвыбранную сумму
   useEffect(() => {
     if (open) setSelected(amount);
   }, [open, amount]);
+
+  // При каждом открытии выбираем случайный текст
+  useEffect(() => {
+    if (open) {
+      setCopy({ v: pickRandom(modalVariants), note: pickRandom(noteVariants) });
+    }
+  }, [open]);
 
   // Блокируем прокрутку фона + закрытие по Escape
   useEffect(() => {
@@ -98,11 +110,8 @@ export const DonateModal = () => {
           ))}
         </div>
 
-        <h2 className="donate-modal-title">Стая уже виляет хвостом 🐾</h2>
-        <p className="donate-modal-text">
-          Один клик — и у кого-то появится миска еды, тёплый угол и шанс дожить
-          до своей семьи. Мы держим за вас все четыре лапы.
-        </p>
+        <h2 className="donate-modal-title">{copy.v.title}</h2>
+        <p className="donate-modal-text">{copy.v.text}</p>
 
         <div className="donate-modal-chips">
           {quickChips.map((chip) => (
@@ -124,7 +133,7 @@ export const DonateModal = () => {
         <p className="donate-modal-note">
           Безопасная оплата через Kaspi · откроется в новом окне.
           <br />
-          Даже 500 ₸ — это сытый вечер для кого-то из наших.
+          {copy.note}
         </p>
       </div>
     </div>
