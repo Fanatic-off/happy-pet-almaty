@@ -1,0 +1,89 @@
+@use "../../styles/variables" as *;
+
+.dog-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(28, 43, 58, 0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(28, 43, 58, 0.13);
+  }
+
+  .dog-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dog-info {
+    padding: 20px 22px 24px;
+  }
+
+  .dog-name {
+    font-family: $font-display;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+
+  .dog-meta {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+  }
+
+  .dog-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-mid);
+    margin-bottom: 16px;
+  }
+
+  .dog-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .dog-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .tag-friendly { background: var(--teal-pale); color: var(--teal); }
+  .tag-urgent { background: var(--coral-pale); color: var(--coral); }
+  .tag-kids { background: var(--amber-pale); color: var(--gold); }
+  .tag-quiet { background: var(--indigo-pale); color: var(--indigo); }
+
+  .dog-adopt-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 40px;
+    border: none;
+    background: var(--slate);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+
+    &:hover {
+      background: var(--amber);
+      transform: scale(1.01);
+    }
+  }
+}

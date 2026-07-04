@@ -1,0 +1,254 @@
+@use "../../styles/variables" as *;
+
+.donate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(28, 43, 58, 0.72);
+  backdrop-filter: blur(6px);
+  animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.donate-modal {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: var(--warm-white);
+  border-radius: 32px;
+  padding: 40px 36px 32px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(28, 43, 58, 0.4);
+  animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.donate-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(28, 43, 58, 0.06);
+  color: var(--text-mid);
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+
+  &:hover {
+    background: rgba(28, 43, 58, 0.12);
+    transform: rotate(90deg);
+  }
+}
+
+/* ===== ЛАПА ДОБРА ===== */
+.paw-stage {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 6px auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paw-glow {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 168, 60, 0.45) 0%, rgba(224, 90, 58, 0.12) 55%, transparent 72%);
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+/* Кольцо «доброта наполняется» */
+.paw-charge {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+
+  circle {
+    fill: none;
+    stroke: var(--coral);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 339;
+    stroke-dashoffset: 339;
+    opacity: 0.85;
+    animation: pawCharge 1.8s ease-out forwards, chargeSpin 6s linear 1.8s infinite;
+  }
+}
+
+@keyframes pawCharge {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes chargeSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.paw-of-kindness {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  z-index: 1;
+  transform-origin: center 70%;
+  animation: heartbeat 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 6px 14px rgba(224, 90, 58, 0.4));
+}
+
+/* Плавающие сердечки */
+.float-heart {
+  position: absolute;
+  bottom: 40px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  animation: floatHeart 2.8s ease-in infinite;
+}
+
+@keyframes floatHeart {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  20% { opacity: 0.9; }
+  100% { opacity: 0; transform: translateY(-90px) scale(1.1); }
+}
+
+.float-heart-1 { left: 20%; animation-delay: 0.1s; }
+.float-heart-2 { left: 68%; animation-delay: 0.6s; font-size: 18px; }
+.float-heart-3 { left: 40%; animation-delay: 1.1s; }
+.float-heart-4 { left: 80%; animation-delay: 1.5s; font-size: 12px; }
+.float-heart-5 { left: 10%; animation-delay: 2s; font-size: 16px; }
+.float-heart-6 { left: 55%; animation-delay: 0.9s; font-size: 12px; }
+.float-heart-7 { left: 32%; animation-delay: 1.8s; font-size: 15px; }
+
+/* ===== ТЕКСТ ===== */
+.donate-modal-title {
+  font-family: $font-display;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+
+.donate-modal-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-mid);
+  max-width: 360px;
+  margin: 0 auto 24px;
+}
+
+/* ===== ЧИПЫ СУММ ===== */
+.donate-modal-chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.donate-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 8px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+
+  strong {
+    font-family: $font-display;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--slate);
+  }
+
+  span {
+    font-size: 11px;
+    color: var(--text-soft);
+  }
+
+  &:hover {
+    border-color: var(--amber);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    border-color: var(--coral);
+    background: var(--coral-pale);
+    box-shadow: 0 6px 18px rgba(224, 90, 58, 0.18);
+
+    strong { color: var(--coral); }
+  }
+}
+
+/* ===== CTA ===== */
+.donate-modal-cta {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 50px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 10px 32px rgba(224, 90, 58, 0.42);
+  animation: donate-glow 3s ease-in-out infinite;
+
+  &:hover {
+    transform: scale(1.02);
+    animation: none;
+    box-shadow: 0 14px 40px rgba(224, 90, 58, 0.55);
+  }
+}
+
+.donate-modal-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-soft);
+  margin-top: 16px;
+}
+
+@media (max-width: $bp-mobile) {
+  .donate-modal {
+    padding: 34px 22px 26px;
+    border-radius: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paw-charge circle,
+  .paw-of-kindness,
+  .paw-glow,
+  .float-heart,
+  .donate-modal-cta {
+    animation: none !important;
+  }
+  .paw-charge circle { stroke-dashoffset: 0; }
+  .float-heart { display: none; }
+}

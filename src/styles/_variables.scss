@@ -1,11 +1,11 @@
-$font-main: "Georgia", sans-serif;
+// Брейкпоинты
+$bp-mobile: 768px;
+$bp-tablet: 960px;
 
-$color-main: rgba(205, 205, 205, 1);
-$color-secondary: rgba(241, 205, 179, 1);
-$color-gray: rgba(84, 84, 84, 1);
+// Отступы секций
+$section-pad-y: 100px;
+$section-pad-x: 5vw;
 
-$padding-horizontal: 40px;
-$padding-vertical: 80px;
-
-$width-tablet: 960px;
-$width-mobile: 768px;
+// Шрифты
+$font-display: "Playfair Display", Georgia, serif;
+$font-body: "Inter", system-ui, Arial, sans-serif;

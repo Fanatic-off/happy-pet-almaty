@@ -1,0 +1,24 @@
+@use "../../../../styles/variables" as *;
+
+.stories-preview {
+  text-align: left;
+
+  .stories-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 800px;
+  }
+
+  .stories-preview-item {
+    display: flex;
+
+    .story-card {
+      width: 100%;
+    }
+  }
+
+  .stories-preview-more {
+    margin-top: 40px;
+  }
+}

@@ -1,4 +1,7 @@
 export const ROUTES = {
-  HOME: '/',
-  NOT_FOUND: '*',
+  HOME: "/",
+  DOGS: "/dogs",
+  STORIES: "/stories",
+  DONATE: "/donate",
+  NOT_FOUND: "*",
 };

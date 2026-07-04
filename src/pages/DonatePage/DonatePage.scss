@@ -1,0 +1,283 @@
+@use "../../styles/variables" as *;
+
+.donate-page {
+  text-align: left;
+
+  .donate-hero {
+    background: linear-gradient(135deg, var(--slate) 0%, var(--slate2) 100%);
+    color: #fff;
+    padding: 100px 5vw 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "🐾";
+      position: absolute;
+      font-size: 300px;
+      opacity: 0.04;
+      top: -60px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: $font-display;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+
+      em {
+        font-style: italic;
+        color: var(--amber-light);
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+  }
+
+  .donate-big-heart {
+    font-size: 64px;
+    display: block;
+    margin-bottom: 24px;
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+
+  .donate-form-section {
+    padding: 80px 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .donate-form-box {
+    background: #fff;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 8px 48px rgba(28, 43, 58, 0.1);
+
+    h2 {
+      font-family: $font-display;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 28px;
+    }
+  }
+
+  .period-toggle {
+    display: flex;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+
+  .period-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.active {
+      background: var(--slate);
+      color: #fff;
+    }
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .amount-btn {
+    padding: 14px 10px;
+    border-radius: 14px;
+    border: 2px solid var(--border);
+    background: transparent;
+    color: var(--slate);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: $font-display;
+
+    &:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    &.selected {
+      border-color: var(--coral);
+      background: var(--coral);
+      color: #fff;
+    }
+
+    span {
+      display: block;
+      font-family: $font-body;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+  }
+
+  .custom-amount {
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--slate);
+    font-family: $font-display;
+    margin-bottom: 24px;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: var(--amber);
+    }
+  }
+
+  .submit-donate {
+    width: 100%;
+    padding: 18px;
+    border-radius: 50px;
+    border: none;
+    background: var(--coral);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+    transition: transform 0.2s;
+    box-shadow: 0 8px 32px rgba(224, 90, 58, 0.4);
+    animation: donate-glow 3s ease-in-out infinite;
+
+    &:hover {
+      transform: scale(1.02);
+      animation: none;
+      box-shadow: 0 12px 40px rgba(224, 90, 58, 0.55);
+    }
+  }
+
+  .donate-note {
+    font-size: 12px;
+    color: var(--text-soft);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  // ===== IMPACT =====
+  .donate-impact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .donate-impact-title {
+    font-family: $font-display;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--slate);
+    margin-bottom: 8px;
+  }
+
+  .donate-impact-sub {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 4px;
+  }
+
+  .impact-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 24px 26px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .impact-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--amber-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .impact-amount {
+    display: inline-block;
+    background: var(--amber-pale);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+
+  .impact-body {
+    h4 {
+      font-family: $font-display;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 4px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-mid);
+    }
+  }
+
+  // Цветовые варианты
+  .impact-coral .impact-icon { background: var(--coral-pale); }
+  .impact-coral .impact-amount { background: var(--coral-pale); color: var(--coral); }
+  .impact-teal .impact-icon { background: var(--teal-pale); }
+  .impact-teal .impact-amount { background: var(--teal-pale); color: var(--teal); }
+  .impact-indigo .impact-icon { background: var(--indigo-pale); }
+  .impact-indigo .impact-amount { background: var(--indigo-pale); color: var(--indigo); }
+}
+
+@media (max-width: $bp-mobile) {
+  .donate-page {
+    .donate-form-section {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .amount-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

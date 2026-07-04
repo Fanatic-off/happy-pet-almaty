@@ -1,0 +1,28 @@
+.marquee-wrap {
+  overflow: hidden;
+  background: var(--amber);
+  padding: 14px 0;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  animation: marquee 18s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee-item {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &::after {
+    content: "🐾";
+  }
+}

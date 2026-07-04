@@ -1,0 +1,89 @@
+@use "../../styles/variables" as *;
+
+.stories-page {
+  text-align: left;
+
+  .stories-header {
+    background: var(--slate);
+    color: #fff;
+    padding: 80px 5vw 64px;
+
+    h1 {
+      font-family: $font-display;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+
+      em {
+        font-style: italic;
+        color: var(--amber-light);
+      }
+    }
+
+    p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    padding: 60px 5vw;
+  }
+
+  .stories-grid-item {
+    display: flex;
+
+    .story-card {
+      width: 100%;
+    }
+  }
+
+  .story-quote-section {
+    background: var(--cream);
+    padding: 80px 5vw;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .big-quote {
+    font-family: $font-display;
+    font-size: clamp(24px, 3vw, 38px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.4;
+    max-width: 640px;
+    flex: 1;
+
+    &::before {
+      content: "\201C";
+      font-size: clamp(60px, 8vw, 120px);
+      color: var(--amber);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 20px;
+      font-style: normal;
+    }
+  }
+
+  .big-quote-author {
+    margin-top: 20px;
+    font-family: $font-body;
+    font-style: normal;
+    font-size: 15px;
+    color: var(--text-soft);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .stories-page .stories-grid {
+    grid-template-columns: 1fr;
+  }
+}

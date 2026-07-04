@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Спасибо! Открываем оплату…</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --amber: #e8901a;
+      --amber-light: #f5a83c;
+      --coral: #e05a3a;
+      --slate: #1c2b3a;
+      --text-mid: #4a5e6e;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Inter", system-ui, Arial, sans-serif;
+      background: linear-gradient(160deg, #fdf6ec 0%, #f7edd8 55%, #efe0c4 100%);
+      color: var(--slate);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* ===== СЦЕНА: ЛАПА ШЛЁПАЕТ ЭКРАН ===== */
+    .stage {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      animation: shake 0.5s ease 0.34s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-7px, 5px); }
+      45% { transform: translate(7px, -5px); }
+      70% { transform: translate(-3px, 2px); }
+    }
+
+    .paw, .print, .flash {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    /* Летящая на зрителя лапа */
+    .paw {
+      width: 48vmin;
+      height: 48vmin;
+      filter: drop-shadow(0 12px 34px rgba(28, 43, 58, 0.35));
+      animation: pawSlap 0.75s cubic-bezier(0.45, 0, 0.35, 1) forwards;
+    }
+
+    @keyframes pawSlap {
+      0% { opacity: 0; transform: translate(-50%, -62%) scale(0.26); }
+      55% { opacity: 1; transform: translate(-50%, -50%) scale(1.28); }
+      68% { opacity: 1; transform: translate(-50%, -50%) scale(0.95); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+    }
+
+    /* Большой отпечаток-след — держится и медленно тает */
+    .print {
+      width: 64vmin;
+      height: 64vmin;
+      animation: printMark 4.8s ease-out 0.44s forwards;
+    }
+
+    @keyframes printMark {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(1.18); }
+      6% { opacity: 0.32; transform: translate(-50%, -50%) scale(1); }
+      75% { opacity: 0.32; }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* Вспышка удара */
+    .flash {
+      width: 44vmin;
+      height: 44vmin;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 245, 220, 0.9) 0%, rgba(245, 168, 60, 0.5) 38%, transparent 68%);
+      opacity: 0;
+      animation: flash 0.6s ease-out 0.42s;
+    }
+
+    @keyframes flash {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+      40% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    }
+
+    /* Лучи удара */
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 10vmin;
+      border-radius: 6px;
+      background: var(--amber);
+      opacity: 0;
+      transform-origin: center top;
+      animation: line 0.55s ease-out 0.46s;
+    }
+
+    @keyframes line {
+      0% { opacity: 0; transform: rotate(var(--rot)) translateY(15vmin) scaleY(0.4); }
+      40% { opacity: 0.9; }
+      100% { opacity: 0; transform: rotate(var(--rot)) translateY(26vmin) scaleY(1); }
+    }
+
+    /* ===== ТЕКСТ ===== */
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 460px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-mid);
+    }
+
+    .progress {
+      width: 220px;
+      max-width: 70vw;
+      height: 6px;
+      margin: 26px auto 0;
+      border-radius: 10px;
+      background: rgba(28, 43, 58, 0.1);
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--amber), var(--coral));
+      animation: fill 5s ease-in-out forwards;
+    }
+
+    @keyframes fill {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .fallback-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--coral);
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .paw, .flash, .line { animation: none; }
+      .paw, .flash, .line { display: none; }
+      .print { animation: none; opacity: 0.3; transform: translate(-50%, -50%); }
+      .content { opacity: 1; animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" aria-hidden="true">
+    <span class="flash"></span>
+    <span class="line" style="--rot:0deg"></span>
+    <span class="line" style="--rot:45deg"></span>
+    <span class="line" style="--rot:90deg"></span>
+    <span class="line" style="--rot:135deg"></span>
+    <span class="line" style="--rot:180deg"></span>
+    <span class="line" style="--rot:225deg"></span>
+    <span class="line" style="--rot:270deg"></span>
+    <span class="line" style="--rot:315deg"></span>
+
+    <svg class="print" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#f5a83c" />
+          <stop offset="100%" stop-color="#e05a3a" />
+        </linearGradient>
+      </defs>
+      <g fill="url(#g1)">
+        <ellipse cx="50" cy="66" rx="21" ry="18" />
+        <ellipse cx="27" cy="44" rx="8.5" ry="11" />
+        <ellipse cx="41" cy="31" rx="9" ry="12" />
+        <ellipse cx="59" cy="31" rx="9" ry="12" />
+        <ellipse cx="73" cy="44" rx="8.5" ry="11" />
+      </g>
+    </svg>
+
+    <svg class="paw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <g fill="url(#g1)">
+        <ellipse cx="50" cy="66" rx="21" ry="18" />
+        <ellipse cx="27" cy="44" rx="8.5" ry="11" />
+        <ellipse cx="41" cy="31" rx="9" ry="12" />
+        <ellipse cx="59" cy="31" rx="9" ry="12" />
+        <ellipse cx="73" cy="44" rx="8.5" ry="11" />
+      </g>
+    </svg>
+  </div>
+
+  <div class="content">
+    <h1>Спасибо от всей стаи! 🐾</h1>
+    <p>Где-то в приюте уже застучали хвосты по полу.<br />Открываем безопасную оплату Kaspi…</p>
+    <div class="progress"><span></span></div>
+    <a id="fallback" class="fallback-link" href="#">Не открывается? Перейти вручную</a>
+  </div>
+
+  <script>
+    (function () {
+      // Обрываем связь с открывшей вкладкой (раз открыли без noopener)
+      try { window.opener = null; } catch (e) { /* игнорируем */ }
+
+      var FALLBACK = "https://pay.kaspi.kz/pay/hn36faf2"; // запасной адрес Kaspi (держать в синхроне с src/config/site.ts)
+      var target = FALLBACK;
+      try {
+        var to = new URLSearchParams(location.search).get("to");
+        if (to) {
+          var u = new URL(to);
+          if (u.protocol === "https:" && (u.hostname === "kaspi.kz" || u.hostname.endsWith(".kaspi.kz"))) {
+            target = u.href;
+          }
+        }
+      } catch (e) { /* используем запасной адрес */ }
+
+      document.getElementById("fallback").href = target;
+      // location.replace — чтобы «Назад» с Kaspi не возвращал на эту страницу-прокладку
+      setTimeout(function () { location.replace(target); }, 5000);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+@use "variables" as *;
+
+// ===== КНОПКИ =====
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--coral);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 32px rgba(224, 90, 58, 0.4);
+  animation: donate-glow 3s ease-in-out infinite;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--slate);
+  padding: 15px 28px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: var(--amber);
+    background: var(--amber-pale);
+  }
+}
+
+.btn-heart {
+  display: inline-block;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+// ===== СЕКЦИИ =====
+.section {
+  padding: $section-pad-y $section-pad-x;
+}
+.section-sm {
+  padding: 60px $section-pad-x;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+.section-h2 {
+  font-family: $font-display;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--slate);
+  line-height: 1.2;
+  margin-bottom: 20px;
+
+  em {
+    font-style: italic;
+    color: var(--amber);
+  }
+}
+
+.section-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-mid);
+  max-width: 560px;
+}
