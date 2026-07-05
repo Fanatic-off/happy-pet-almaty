@@ -2,5 +2,5 @@
 User-agent: *
 Allow: /
 
-# Карта сайта (замените домен на реальный)
+# Карта сайта
 Sitemap: https://happy-pet-almaty.kz/sitemap.xml
