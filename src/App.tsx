@@ -6,6 +6,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { DogsPage } from "./pages/DogsPage/DogsPage";
 import { StoriesPage } from "./pages/StoriesPage/StoriesPage";
 import { DonatePage } from "./pages/DonatePage/DonatePage";
+import { VolunteeringPage } from "./pages/VolunteeringPage/VolunteeringPage";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
@@ -26,6 +27,7 @@ function App() {
           <Route path={ROUTES.DOGS} element={<DogsPage />} />
           <Route path={ROUTES.STORIES} element={<StoriesPage />} />
           <Route path={ROUTES.DONATE} element={<DonatePage />} />
+          <Route path={ROUTES.VOLUNTEER} element={<VolunteeringPage />} />
           <Route path={ROUTES.NOT_FOUND} element={<HomePage />} />
         </Routes>
       </main>

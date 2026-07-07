@@ -38,7 +38,7 @@ export const Footer = () => {
           <h4>Помочь</h4>
           <ul>
             <li><Link to={ROUTES.DONATE}>Пожертвовать</Link></li>
-            <li><a href={SITE.instagram} target="_blank" rel="noopener noreferrer">Стать волонтёром</a></li>
+            <li><Link to={ROUTES.VOLUNTEER}>Стать волонтёром</Link></li>
             <li><a href={SITE.instagram} target="_blank" rel="noopener noreferrer">Нужды приюта</a></li>
           </ul>
         </div>
