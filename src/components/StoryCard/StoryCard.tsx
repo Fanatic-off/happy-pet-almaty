@@ -2,9 +2,21 @@ import type { Story } from "../../data/stories";
 import { DogIllustration } from "../DogIllustration/DogIllustration";
 import "./StoryCard.scss";
 
-const avatarColors = ["#E8901A", "#E05A3A", "#2A8C6E", "#4A5FBF", "#9B59B6", "#E74C3C"];
+const avatarColors = [
+  "#E8901A",
+  "#E05A3A",
+  "#2A8C6E",
+  "#4A5FBF",
+  "#9B59B6",
+  "#E74C3C",
+];
 
-export const StoryCard = ({ story, index = 0 }: { story: Story; index?: number }) => {
+interface StoryCardProps {
+  story: Story;
+  index?: number;
+}
+
+export const StoryCard = ({ story, index = 0 }: StoryCardProps) => {
   return (
     <div className="story-card">
       <div className={`story-photo ${story.photo ? "has-photo" : story.color}`}>
