@@ -35,11 +35,13 @@ export const VolunteeringPage = () => {
         </p>
       </div>
 
-      {/* ОБЯЗАННОСТИ */}
-      <Duties selected={selected} onToggle={toggle} />
-
-      {/* ЗАЯВКА */}
-      <Application selected={selected} />
+      {/* Обязанности (слева) + Заявка (справа) в одной секции */}
+      <section className="section volunteer-join">
+        <div className="volunteer-join-grid">
+          <Duties selected={selected} onToggle={toggle} />
+          <Application selected={selected} />
+        </div>
+      </section>
     </div>
   );
 };

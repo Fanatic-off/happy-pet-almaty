@@ -22,7 +22,7 @@ export const Application = ({ selected }: ApplicationProps) => {
   };
 
   return (
-    <section className="volunteer-apply">
+    <div className="volunteer-apply">
       <div className="apply-inner">
         <h2>
           Готовы помочь? <em>Оставьте заявку</em>
@@ -40,6 +40,6 @@ export const Application = ({ selected }: ApplicationProps) => {
           Ответим и расскажем, как всё устроено. Спасибо, что не проходите мимо 🐾
         </span>
       </div>
-    </section>
+    </div>
   );
 };

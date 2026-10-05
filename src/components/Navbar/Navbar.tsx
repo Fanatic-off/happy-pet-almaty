@@ -24,6 +24,9 @@ export const Navbar = () => {
           <NavLink to={ROUTES.STORIES}>Истории</NavLink>
         </li>
         <li>
+          <NavLink to={ROUTES.VOLUNTEER}>Волонтёрам</NavLink>
+        </li>
+        <li>
           <NavLink to={ROUTES.DONATE} className="nav-donate-btn">
             ❤️ Помочь
           </NavLink>

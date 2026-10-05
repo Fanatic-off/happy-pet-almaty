@@ -9,7 +9,7 @@ interface DutiesProps {
 
 export const Duties = ({ selected, onToggle }: DutiesProps) => {
   return (
-    <section className="section volunteer-duties">
+    <div className="volunteer-duties">
       <div className="section-label">Обязанности</div>
       <h2 className="section-h2">
         Чем можно <em>помочь</em>
@@ -41,6 +41,6 @@ export const Duties = ({ selected, onToggle }: DutiesProps) => {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };

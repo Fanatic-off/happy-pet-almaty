@@ -1,22 +1,24 @@
 @use "../../../../styles/variables" as *;
 
 .volunteer-apply {
-  padding: 80px 5vw;
   background: linear-gradient(135deg, var(--slate) 0%, var(--slate2) 100%);
   color: #fff;
+  border-radius: 28px;
+  padding: 40px 34px;
+  box-shadow: 0 16px 44px rgba(28, 43, 58, 0.22);
+  position: sticky;
+  top: 96px; // ниже фиксированного навбара (72px) с отступом
 
   .apply-inner {
-    max-width: 640px;
-    margin: 0 auto;
     text-align: center;
   }
 
   h2 {
     font-family: $font-display;
-    font-size: clamp(26px, 4vw, 42px);
+    font-size: clamp(24px, 2.4vw, 30px);
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 
     em {
       font-style: italic;
@@ -25,10 +27,10 @@
   }
 
   p {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.65;
     color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .apply-btn {
@@ -38,9 +40,9 @@
     background: var(--teal);
     color: #fff;
     border: none;
-    padding: 18px 40px;
+    padding: 16px 32px;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -61,5 +63,12 @@
     margin-top: 18px;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.55);
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .volunteer-apply {
+    position: static;
+    padding: 36px 26px;
   }
 }
